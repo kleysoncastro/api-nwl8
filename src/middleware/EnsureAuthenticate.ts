@@ -1,6 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
 
+interface IUserIdDTO {
+    sub: string;
+}
 function ensureAuthenticate(
     request: Request,
     response: Response,
@@ -14,7 +17,7 @@ function ensureAuthenticate(
     const [, token] = authToke.split(" ");
 
     try {
-        const { sub } = verify(token, process.env.HASH_SHA1_JWT);
+        const { sub } = verify(token, process.env.HASH_SHA1_JWT) as IUserIdDTO;
 
         request.user_id = sub;
 
