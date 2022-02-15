@@ -34,6 +34,4 @@ app.get("/signin/callback", (request, response) => {
     response.send({ code });
 });
 
-
 export { serverHttp, io };
-
