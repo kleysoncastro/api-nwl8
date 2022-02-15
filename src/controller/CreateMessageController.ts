@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-
 import { CreateMessageService } from "../services/CreateMessageService";
 
 class CreateMessageController {

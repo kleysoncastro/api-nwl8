@@ -4,7 +4,7 @@
   "main": "/src/app.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --inspect --exit-child --respawn --ignore-watch node_modules/ --transpile-only src/app.ts",
+    "dev": "ts-node-dev --inspect --exit-child --respawn --ignore-watch node_modules/ --transpile-only src/server.ts",
     "lint-fix": "yarn eslint --fix src/"
   },
   "devDependencies": {
@@ -34,9 +34,11 @@
   "dependencies": {
     "@prisma/client": "3.9.2",
     "axios": "^0.25.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
+    "socket.io": "^4.4.1",
     "uuid": "^8.3.2"
   }
 }

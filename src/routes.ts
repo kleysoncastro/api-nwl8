@@ -11,6 +11,7 @@ router.post("/authenticate", new AuthenticateUserController().handle);
 router.post(
     "/message",
     ensureAuthenticate,
+
     new CreateMessageController().handle
 );
 

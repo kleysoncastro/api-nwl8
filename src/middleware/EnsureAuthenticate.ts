@@ -12,7 +12,9 @@ function ensureAuthenticate(
     const authToke = request.headers.authorization;
 
     if (!authToke) {
-        return response.status(401).json({ error: "token Invalid" });
+        return response
+            .status(401)
+            .json({ error: "token Invalid bloc by middleware" });
     }
     const [, token] = authToke.split(" ");
 
