@@ -14,7 +14,7 @@ function ensureAuthenticate(
     if (!authToke) {
         return response
             .status(401)
-            .json({ error: "token Invalid bloc by middleware" });
+            .json({ error: "token Invalid block by middleware" });
     }
     const [, token] = authToke.split(" ");
 
