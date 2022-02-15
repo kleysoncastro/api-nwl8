@@ -3,7 +3,7 @@ import "dotenv/config";
 import cors from "cors";
 import express from "express";
 import http from "http";
-import { Server } from "socket.io";
+import { Server, Socket } from "socket.io";
 
 import { router } from "./routes";
 
@@ -14,6 +14,10 @@ const io = new Server(serverHttp, {
     cors: {
         origin: "*",
     },
+});
+
+io.on("connection", (socket) => {
+    console.log(`Usuario conectado em ${socket.id}`);
 });
 app.use(express.json());
 
@@ -30,6 +34,6 @@ app.get("/signin/callback", (request, response) => {
     response.send({ code });
 });
 
-app.listen(3333, () => console.log("🙏🏻app running in port 3333"));
+serverHttp.listen(3333, () => console.log("🙏🏻app running in port 3333"));
 
 // http://localhost:3333/signin/callback
